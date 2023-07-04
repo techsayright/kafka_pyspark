@@ -1,0 +1,26 @@
+{
+  "name": "mongo-source",
+  "config": {
+    "topic.prefix":"demo",
+    "database.history.kafka.bootstrap.servers": "broker0:19092,broker1:19093,broker2:19094",
+    "connector.class": "io.debezium.connector.mongodb.MongoDbConnector",
+    "mongodb.name": "demo",
+    "poll.interval.ms": 1000,
+    "mongodb.user": "data-warehouse-team-preprod",
+    "mongodb.password": "smsdDdddYqooID5aFTY4aNWFRuXnlL",
+    "mongodb.authsource": "admin",
+    "mongodb.hosts": "mongodb://data-warehouse-team-preprod:smsdDdddYqooID5aFTY4aNWFRuXnlL@globalplay-cluster-prep-shard-00-00.zihzn.mongodb.net:27017,globalplay-cluster-prep-shard-00-01.zihzn.mongodb.net:27017,globalplay-cluster-prep-shard-00-02.zihzn.mongodb.net:27017/?ssl=true&replicaSet=atlas-1089ad-shard-0&authSource=admin&retryWrites=true&w=majority",
+    "mongodb.ssl.enabled": true,
+    "mongodb.members.auto.discover": true,
+    "collection.include.list": "globalplay-preprod.payment-reports",
+    "tasks.max": "1",
+    "value.converter.schemas.enable": false,
+    "value.converter": "org.apache.kafka.connect.json.JsonConverter",
+    "key.converter.schemas.enable": false,
+    "plugin.name": "wal2json",
+    "transforms": "mongoflatten",
+    "transforms.mongoflatten.type": "io.debezium.connector.mongodb.transforms.ExtractNewDocumentState",
+    "transforms.mongoflatten.delete.handling.mode": "rewrite",
+    "transforms.mongoflatten.array.encoding": "document"
+  }
+}

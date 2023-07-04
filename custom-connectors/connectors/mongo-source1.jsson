@@ -1,0 +1,24 @@
+{
+  "name": "mongo-source",
+  "config": {
+    "database.history.kafka.bootstrap.servers": "broker0:19092,broker1:19093,broker2:19094",
+    "connector.class": "io.debezium.connector.mongodb.MongoDbConnector",
+    "mongodb.name": "demo",
+    "poll.interval.ms": 1000,
+    "mongodb.user": "darsh",
+    "mongodb.password": "darshPass1",
+    "mongodb.authsource": "admin",
+    "mongodb.hosts": "mongodb://darsh:darshPass1@cluster1-shard-00-00.7tzrh.mongodb.net:27017,cluster1-shard-00-01.7tzrh.mongodb.net:27017,cluster1-shard-00-02.7tzrh.mongodb.net:27017/?ssl=true&replicaSet=atlas-z53fta-shard-0&authSource=admin&retryWrites=true&w=majority",
+    "mongodb.ssl.enabled": true,
+    "mongodb.members.auto.discover": true,
+    "collection.include.list": "globalplay-prod.packages",
+    "tasks.max": "1",
+    "value.converter": "org.apache.kafka.connect.json.JsonConverter",
+    "value.converter.schemas.enable": false,
+    "key.converter.schemas.enable": false,
+    "plugin.name": "wal2json",
+    "transforms": "mongoflatten",
+    "transforms.mongoflatten.type": "io.debezium.connector.mongodb.transforms.ExtractNewDocumentState",
+    "transforms.mongoflatten.array.encoding": "document"
+  }
+}

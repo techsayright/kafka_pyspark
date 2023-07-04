@@ -1,0 +1,19 @@
+{
+  "name": "pgsink",
+  "config": {
+    "connector.class": "io.confluent.connect.jdbc.JdbcSinkConnector",
+    "connection.url": "jdbc:redshift://redshift-cluster-1.c3et5yekaq9u.us-east-1.redshift.amazonaws.com:5439/demo",
+    "connection.user": "awsuser",
+    "connection.password": "Aws123456",
+    "tasks.max": "1",
+    "topics": "demo.class.pr",
+    "auto.create": "true",
+    "auto.evolve": "true",
+    "pk.mode": "record_key",
+    "pk.fields": "id",
+    "delete.enabled": true,
+    "dialect.name":"PostgreSqlDatabaseDialect",
+    "key.converter.schemas.enable": false,
+    "value.converter.schemas.enable": true
+  }
+}

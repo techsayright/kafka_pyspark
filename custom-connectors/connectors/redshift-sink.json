@@ -1,0 +1,22 @@
+{
+  "name": "redshift-sink",
+  "config": {
+    "confluent.topic.bootstrap.servers": "broker0:19092,broker1:19093,broker2:19094",
+    "connector.class": "io.confluent.connect.aws.redshift.RedshiftSinkConnector",
+    "confluent.topic.replication.factor": "1",
+    "tasks.max": "1",
+    "topics": "funfull.ff.transactions",
+    "aws.redshift.domain": "redshift-prod.cruywcvg6n7o.us-east-1.redshift.amazonaws.com",
+    "aws.redshift.port": "5439",
+    "aws.redshift.database": "funfull",
+    "aws.redshift.user": "aws",
+    "aws.redshift.password": "Nx9u7v{RehN$=Wc",
+    "auto.create": "true",
+    "delete.enabled": "true",
+    "auto.evolve": "true",
+    "pk.mode": "record_key",
+    "pk.fields": "_id",
+    "key.converter.schemas.enable": false,
+    "value.converter.schemas.enable": true
+  }
+}
